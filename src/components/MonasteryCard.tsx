@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Users } from "lucide-react";
+import { MonasteryDetailModal } from "./MonasteryDetailModal";
+import { useNavigate } from "react-router-dom";
 
 interface MonasteryCardProps {
   title: string;
@@ -21,9 +23,29 @@ export const MonasteryCard = ({
   visitors,
   onLearnMore,
 }: MonasteryCardProps) => {
+  const navigate = useNavigate();
+  const monasteryData = {
+    title,
+    location,
+    established,
+    description,
+    imageUrl,
+    visitors
+  };
+
+  // Create URL-friendly slug from title
+  const getMonasterySlug = (title: string) => {
+    return title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+  };
+
+  const handleViewDetails = () => {
+    const slug = getMonasterySlug(title);
+    navigate(`/monastery/${slug}`);
+  };
+
   return (
-    <Card className="monastery-card overflow-hidden border-border/50 bg-card/80 backdrop-blur-sm">
-      <div className="relative h-48 overflow-hidden">
+    <Card className="monastery-card overflow-hidden border-border/50 bg-card/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+      <div className="relative h-48 overflow-hidden cursor-pointer" onClick={handleViewDetails}>
         <img
           src={imageUrl}
           alt={`${title} monastery`}
@@ -54,19 +76,31 @@ export const MonasteryCard = ({
         </div>
       </CardHeader>
       
-      <CardContent className="pt-0">
-        <p className="text-card-foreground/80 text-sm leading-relaxed mb-4">
+      <CardContent className="pt-0 space-y-3">
+        <p className="text-card-foreground/80 text-sm leading-relaxed line-clamp-3">
           {description}
         </p>
         
-        <Button 
-          variant="spiritual" 
-          size="sm" 
-          onClick={onLearnMore}
-          className="w-full"
-        >
-          Explore Monastery
-        </Button>
+        <div className="flex space-x-2">
+          <MonasteryDetailModal monastery={monasteryData}>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="flex-1"
+            >
+              Quick View
+            </Button>
+          </MonasteryDetailModal>
+          
+          <Button 
+            variant="spiritual" 
+            size="sm" 
+            className="flex-1"
+            onClick={handleViewDetails}
+          >
+            View Details
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );
