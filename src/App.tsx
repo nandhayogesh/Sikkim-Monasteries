@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navigation } from "@/components/Navigation";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import CulturePage from "./pages/CulturePage";
 import { MonasteryDetailPage } from "./pages/MonasteryDetailPage";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
           <Navigation />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/culture" element={<CulturePage />} />
             <Route path="/monastery/:id" element={<MonasteryDetailPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

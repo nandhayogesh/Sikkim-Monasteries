@@ -8,7 +8,6 @@ import cultureDance from "@/assets/monastery-2.jpg";
 import cultureCuisine from "@/assets/monastery-3.jpg";
 import cultureAttire from "@/assets/hero-monastery.jpg";
 import cultureArt from "@/assets/monastery-1.jpg";
-const cultureArt = "";
 
 export const CulturalSection = () => (
   <section id="cultural" className="py-16 bg-gradient-to-br from-background via-muted/40 to-card/80">
@@ -18,12 +17,12 @@ export const CulturalSection = () => (
         Sikkim’s culture is a vibrant tapestry woven from its diverse ethnic groups, spiritual traditions, and harmonious way of life. Explore the festivals, dances, cuisine, attire, and art that make Sikkim unique.
       </p>
       <Tabs defaultValue="festivals" className="w-full">
-        <TabsList className="mb-6 flex flex-wrap gap-2">
-          <TabsTrigger value="festivals">Festivals</TabsTrigger>
-          <TabsTrigger value="dance">Dance & Music</TabsTrigger>
-          <TabsTrigger value="cuisine">Cuisine</TabsTrigger>
-          <TabsTrigger value="attire">Traditional Attire</TabsTrigger>
-          <TabsTrigger value="art">Art & Handicrafts</TabsTrigger>
+        <TabsList className="mb-6 grid grid-cols-2 md:grid-cols-5 gap-1 h-auto p-1 bg-muted/50">
+          <TabsTrigger value="festivals" className="text-xs md:text-sm py-2">Festivals</TabsTrigger>
+          <TabsTrigger value="dance" className="text-xs md:text-sm py-2">Dance</TabsTrigger>
+          <TabsTrigger value="cuisine" className="text-xs md:text-sm py-2">Cuisine</TabsTrigger>
+          <TabsTrigger value="attire" className="text-xs md:text-sm py-2">Attire</TabsTrigger>
+          <TabsTrigger value="art" className="text-xs md:text-sm py-2">Art</TabsTrigger>
         </TabsList>
         <ScrollArea className="h-[400px]">
           <TabsContent value="festivals">

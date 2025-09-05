@@ -1,12 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Mountain, Camera, MapPin } from "lucide-react";
 import heroImage from "@/assets/hero-monastery.jpg";
+import { useNavigate } from "react-router-dom";
 
 export const HeroSection = () => {
   const scrollToMonasteries = () => {
     document.getElementById('monasteries')?.scrollIntoView({ 
       behavior: 'smooth' 
     });
+  };
+
+  const navigate = useNavigate();
+
+  const goToCulture = () => {
+    navigate('/culture');
   };
 
   return (
@@ -68,6 +75,7 @@ export const HeroSection = () => {
             variant="mountain" 
             size="xl"
             className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 text-sm md:text-base"
+            onClick={goToCulture}
           >
             Cultural Heritage
           </Button>

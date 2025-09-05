@@ -16,7 +16,7 @@ const monasteries = [
     location: "East Sikkim",
     established: "1960s",
     description: "The largest monastery in Sikkim, known as the 'Dharmachakra Centre'. Home to the Karmapa Lama and featuring exquisite Buddhist art and architecture.",
-    imageUrl: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+  imageUrl: "https://www.captureatrip.com/_next/image?url=https://d1zvcmhypeawxj.cloudfront.net/location/Sikkim/blogs/rumtek-monastery-44b659d69d-gb1sls-webp-26074d0e20-1752061511194.webp&w=3840&q=50",
     visitors: "50k+ annually",
   },
   {
@@ -24,7 +24,7 @@ const monasteries = [
     location: "West Sikkim",
     established: "1705",
     description: "One of the oldest and most significant monasteries, meaning 'Perfect Sublime Lotus'. Houses precious Buddhist scriptures and religious artifacts.",
-    imageUrl: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    imageUrl: "https://storage.googleapis.com/tb-img/production/21/12/61c18b0d5f42b90318a82dcb_16402704773081.png",
     visitors: "30k+ annually",
   },
   {
@@ -32,7 +32,7 @@ const monasteries = [
     location: "Gangtok",
     established: "1909",
     description: "A beautiful monastery offering panoramic views of Kanchenjunga. Famous for its annual Cham dance performances during religious festivals.",
-    imageUrl: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+  imageUrl: "http://www.sikkimstdc.com/Images/POIIDImages/23/Gallery/2.jpeg",
     visitors: "25k+ annually",
   },
   {
@@ -40,7 +40,7 @@ const monasteries = [
     location: "West Sikkim",
     established: "1717",
     description: "One of the holiest Nyingma monasteries, famous for the Bumchu festival and its spiritual significance.",
-    imageUrl: "https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+  imageUrl: "https://www.captureatrip.com/_next/image?url=https://d1zvcmhypeawxj.cloudfront.net/location/Sikkim/blogs/tashiding-monastery-789b207931-64lnco-webp-9fc2e3dbd6-1752062306566.webp&w=3840&q=50",
     visitors: "15k+ annually",
   },
   {
@@ -48,7 +48,7 @@ const monasteries = [
     location: "South Sikkim",
     established: "1768",
     description: "Important Kagyu monastery near Ravangla, known for its annual Pang Lhabsol festival and beautiful murals.",
-    imageUrl: "https://images.unsplash.com/photo-1590736876225-c5ec57e41510?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+  imageUrl: "https://live.staticflickr.com/65535/48559994452_59503f8050.jpg",
     visitors: "12k+ annually",
   },
   {
@@ -56,63 +56,7 @@ const monasteries = [
     location: "North Sikkim",
     established: "1740",
     description: "Kagyu sect, renowned for its beautiful murals and annual Chaam dances.",
-    imageUrl: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    visitors: "10k+ annually",
-  },
-  {
-    title: "Dubdi Monastery",
-    location: "West Sikkim",
-    established: "1701",
-    description: "Oldest monastery in Sikkim, located near Yuksom, surrounded by lush forests.",
-    imageUrl: "https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    visitors: "8k+ annually",
-  },
-  {
-    title: "Lachen Monastery",
-    location: "North Sikkim",
-    established: "1858",
-    description: "Gateway to North Sikkim, important for the Lachenpas and local festivals.",
-    imageUrl: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    visitors: "7k+ annually",
-  },
-  {
-    title: "Lachung Monastery",
-    location: "North Sikkim",
-    established: "1880",
-    description: "Located in the picturesque Lachung valley, known for its serene setting.",
-    imageUrl: "https://images.unsplash.com/photo-1590736876225-c5ec57e41510?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    visitors: "7k+ annually",
-  },
-  {
-    title: "Sanga Choeling Monastery",
-    location: "West Sikkim",
-    established: "1697",
-    description: "Near Pelling, one of the oldest monasteries in Sikkim, offering panoramic views.",
-    imageUrl: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    visitors: "6k+ annually",
-  },
-  {
-    title: "Lingdum (Rigdzin) Monastery",
-    location: "East Sikkim",
-    established: "1999",
-    description: "Modern monastery near Gangtok, known for its impressive architecture and peaceful ambiance.",
-    imageUrl: "https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    visitors: "5k+ annually",
-  },
-  {
-    title: "Khecheopalri Monastery",
-    location: "West Sikkim",
-    established: "20th century",
-    description: "Near the sacred Khecheopalri Lake, a pilgrimage site for Buddhists and Hindus alike.",
-    imageUrl: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    visitors: "5k+ annually",
-  },
-  {
-    title: "Zong Dog Palri Fo Brang Monastery (Ravangla)",
-    location: "South Sikkim",
-    established: "2002",
-    description: "Also known as the Buddha Park Monastery, features a giant Buddha statue and beautiful surroundings.",
-    imageUrl: "https://images.unsplash.com/photo-1590736876225-c5ec57e41510?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+  imageUrl: "https://myholidayhappiness.com/uploads/phodong-monastery-2458.jpg",
     visitors: "10k+ annually",
   },
 ];
@@ -181,7 +125,7 @@ export const MonasteriesSection = () => {
         </div>
 
         {/* Interactive Map Section */}
-        <div className="mt-16 flex flex-col items-center">
+        <div id="map" className="mt-16 flex flex-col items-center">
           <div className="w-full max-w-5xl">
             <div className="text-center mb-6">
               <h3 className="text-2xl md:text-3xl font-semibold mb-3">Monastery Locations</h3>

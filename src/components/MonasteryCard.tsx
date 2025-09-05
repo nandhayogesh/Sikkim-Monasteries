@@ -81,26 +81,7 @@ export const MonasteryCard = ({
           {description}
         </p>
         
-        <div className="flex space-x-2">
-          <MonasteryDetailModal monastery={monasteryData}>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="flex-1"
-            >
-              Quick View
-            </Button>
-          </MonasteryDetailModal>
-          
-          <Button 
-            variant="spiritual" 
-            size="sm" 
-            className="flex-1"
-            onClick={handleViewDetails}
-          >
-            View Details
-          </Button>
-        </div>
+  {/* Removed Quick View and View Details buttons */}
       </CardContent>
     </Card>
   );

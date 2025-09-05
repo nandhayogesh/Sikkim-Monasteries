@@ -26,12 +26,27 @@ const monasteryLocations = [
   {
     title: "Pemayangtse Monastery", 
     position: [27.2396, 88.2642] as [number, number],
-    description: "One of the oldest and most significant monasteries."
+    description: "One of the oldest and most significant monasteries, meaning 'Perfect Sublime Lotus'."
   },
   {
     title: "Enchey Monastery",
     position: [27.3406, 88.6131] as [number, number],
     description: "A beautiful monastery offering panoramic views of Kanchenjunga."
+  },
+  {
+    title: "Tashiding Monastery",
+    position: [27.1833, 88.2167] as [number, number],
+    description: "One of the holiest Nyingma monasteries, famous for the Bumchu festival."
+  },
+  {
+    title: "Ralong Monastery",
+    position: [27.1981, 88.3125] as [number, number],
+    description: "Important Kagyu monastery near Ravangla, known for its annual Pang Lhabsol festival."
+  },
+  {
+    title: "Phodong Monastery",
+    position: [27.4583, 88.5833] as [number, number],
+    description: "Kagyu sect, renowned for its beautiful murals and annual Chaam dances."
   }
 ];
 
@@ -43,7 +58,7 @@ export const MonasteryMap = () => {
     if (!mapRef.current || mapInstanceRef.current) return;
 
     // Initialize map
-    const map = L.map(mapRef.current).setView([27.3389, 88.6065], 10);
+    const map = L.map(mapRef.current).setView([27.3200, 88.4500], 9);
     mapInstanceRef.current = map;
 
     // Add tile layer

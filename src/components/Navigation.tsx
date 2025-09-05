@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { 
   Moon, 
   Sun, 
@@ -19,6 +20,8 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,15 +32,23 @@ export const Navigation = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      // Navigate to home page first, then scroll to section
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
     setIsOpen(false);
   };
 
   const navItems = [
-    { id: 'hero', label: 'Home', icon: Home },
-    { id: 'monasteries', label: 'Monasteries', icon: Mountain },
-    { id: 'map', label: 'Map', icon: MapPin },
-    { id: 'cultural', label: 'Culture', icon: Calendar },
+    { id: 'hero', label: 'Home', icon: Home, type: 'scroll' },
+    { id: 'monasteries', label: 'Monasteries', icon: Mountain, type: 'scroll' },
+    { id: 'map', label: 'Map', icon: MapPin, type: 'scroll' },
+    { id: 'culture', label: 'Culture', icon: Calendar, type: 'link', path: '/culture' },
   ];
 
   return (
@@ -49,35 +60,38 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2 cursor-pointer" onClick={() => scrollToSection('hero')}>
+          <Link to="/" className="flex items-center space-x-2 cursor-pointer">
             <Mountain className="w-8 h-8 text-primary" />
             <span className="text-xl font-medium text-foreground">Sikkim Monasteries</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="flex items-center space-x-2 text-foreground/80 hover:text-primary transition-colors duration-200"
-              >
-                <item.icon className="w-4 h-4" />
-                <span>{item.label}</span>
-              </button>
+              item.type === 'link' ? (
+                <Link
+                  key={item.id}
+                  to={item.path!}
+                  className="flex items-center space-x-2 text-foreground/80 hover:text-primary transition-colors duration-200"
+                >
+                  <item.icon className="w-4 h-4" />
+                  <span>{item.label}</span>
+                </Link>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="flex items-center space-x-2 text-foreground/80 hover:text-primary transition-colors duration-200"
+                >
+                  <item.icon className="w-4 h-4" />
+                  <span>{item.label}</span>
+                </button>
+              )
             ))}
           </div>
 
           {/* Search and Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4">
-            <div className="relative">
-              <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
-              <Input
-                placeholder="Search monasteries..."
-                className="pl-10 w-64"
-              />
-            </div>
-            
             <Button
               size="icon"
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -114,21 +128,28 @@ export const Navigation = () => {
           <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border/50">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="flex items-center space-x-3 w-full px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted/50 rounded-md transition-all duration-200"
-                >
-                  <item.icon className="w-5 h-5" />
-                  <span>{item.label}</span>
-                </button>
+                item.type === 'link' ? (
+                  <Link
+                    key={item.id}
+                    to={item.path!}
+                    className="flex items-center space-x-3 w-full px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted/50 rounded-md transition-all duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.label}</span>
+                  </Link>
+                ) : (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="flex items-center space-x-3 w-full px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted/50 rounded-md transition-all duration-200"
+                  >
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.label}</span>
+                  </button>
+                )
               ))}
-              <div className="px-3 py-2">
-                <Input
-                  placeholder="Search monasteries..."
-                  className="w-full"
-                />
-              </div>
+              {/* Search bar removed from mobile menu */}
             </div>
           </div>
         )}
