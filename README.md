@@ -23,7 +23,7 @@ A beautiful and immersive web application to explore the ancient monasteries of 
 
 1. Clone the repository:
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/nandhayogesh/Sikkim-Monasteries.git
 cd sikkim-monastery-explorer
 ```
 
