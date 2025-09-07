@@ -38,6 +38,16 @@ export const FooterSection = () => {
             </ul>
           </div>
         </div>
+        <div className="mt-8 text-center">
+          <a
+            href="https://www.linkedin.com/in/nandhayogesh-ks/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block text-primary hover:underline text-sm md:text-base"
+          >
+            Connect with me on LinkedIn
+          </a>
+        </div>
       </div>
     </footer>
   );

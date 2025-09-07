@@ -63,14 +63,6 @@ const monasteries = [
 
 
 export const MonasteriesSection = () => {
-  const [search, setSearch] = useState("");
-  const [selected, setSelected] = useState(null);
-
-  const filtered = monasteries.filter(
-    m => m.title.toLowerCase().includes(search.toLowerCase()) || 
-         m.location.toLowerCase().includes(search.toLowerCase())
-  );
-
   return (
     <section 
       id="monasteries" 
@@ -91,37 +83,18 @@ export const MonasteriesSection = () => {
           </p>
         </div>
 
-        <div className="mb-8 flex justify-center">
-          <div className="relative w-full max-w-md">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input
-              aria-label="Search monasteries by name or location"
-              placeholder="Search by name or location..."
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              className="pl-10 w-full"
-            />
-          </div>
-        </div>
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {filtered.length === 0 ? (
-            <div className="col-span-full text-center text-muted-foreground py-12">
-              <Search className="w-12 h-12 mx-auto mb-4 text-muted-foreground/50" />
-              <p className="text-lg">No monasteries found matching your search.</p>
-              <p className="text-sm mt-2">Try searching with different keywords.</p>
+          {monasteries.map((monastery, index) => (
+            <div
+              key={monastery.title}
+              className="animate-mountain-fade"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <MonasteryCard {...monastery} />
             </div>
-          ) : (
-            filtered.map((monastery, index) => (
-              <div
-                key={monastery.title}
-                className="animate-mountain-fade"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <MonasteryCard {...monastery} />
-              </div>
-            ))
-          )}
+          ))}
         </div>
 
         {/* Interactive Map Section */}
